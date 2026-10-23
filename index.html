@@ -1,0 +1,2195 @@
+<div id="study-app" dir="rtl">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap");
+
+    #study-app {
+      --green: #073f35;
+      --gold: #d4a72c;
+      --cream: #faf9f5;
+      --text: #173b32;
+      --purple: #3b2890;
+      font-family: "Cairo", sans-serif;
+      max-width: 750px;
+      margin: 20px auto;
+      color: var(--text);
+      background: var(--cream);
+      border: 1px solid #e8e5da;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px #073f3510;
+      line-height: 1.8;
+      position: relative;
+    }
+
+    #study-app * {
+      box-sizing: border-box;
+    }
+
+    #study-app button,
+    #study-app input {
+      font: inherit;
+    }
+
+    #study-app button {
+      cursor: pointer;
+    }
+
+    #study-app .header {
+      background: var(--green);
+      color: white;
+      padding: 17px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    #study-app .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    #study-app .logo {
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      border-radius: 50%;
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      flex-shrink: 0;
+    }
+
+    #study-app .header-name {
+      font-size: 12px;
+      color: #dadfd9;
+      font-weight: 400;
+    }
+
+    #study-app .body {
+      padding: 24px;
+      padding-bottom: 50px;
+    }
+
+    #study-app .screen {
+      display: none;
+    }
+    #study-app .screen.active {
+      display: block;
+    }
+
+    #study-app .welcome {
+      text-align: center;
+      padding: 22px 10px 26px;
+    }
+
+    #study-app h2 {
+      color: var(--green);
+      font-size: 26px;
+      line-height: 1.5;
+      margin: 0 0 8px;
+      font-weight: 800;
+    }
+
+    #study-app h3 {
+      color: var(--green);
+      font-size: 21px;
+      margin: 0 0 5px;
+      font-weight: 800;
+    }
+
+    #study-app .desc {
+      color: #68766f;
+      font-size: 14px;
+      margin: 0 0 22px;
+    }
+
+    #study-app .field {
+      display: block;
+      width: 100%;
+      border: 1px solid #dddcd2;
+      border-radius: 9px;
+      background: white;
+      padding: 12px 14px;
+      margin: 18px 0 12px;
+      outline: none;
+    }
+
+    #study-app .field:focus {
+      border-color: var(--green);
+    }
+
+    #study-app .btn {
+      border: 0;
+      border-radius: 9px;
+      padding: 12px 18px;
+      font-weight: 800;
+      transition: opacity 0.2s;
+    }
+
+    #study-app .btn:hover {
+      opacity: 0.9;
+    }
+    #study-app .primary {
+      background: var(--green);
+      color: white;
+    }
+
+    #study-app .full {
+      width: 100%;
+    }
+
+    #study-app .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    #study-app .card {
+      background: white;
+      border: 1px solid #e6e5dd;
+      border-radius: 12px;
+      padding: 20px 15px;
+      text-align: right;
+      color: var(--text);
+      width: 100%;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #study-app .card h4 {
+      font-size: 16px;
+      font-weight: 800;
+      margin: 0 0 7px;
+    }
+
+    #study-app .card p {
+      color: #69776f;
+      font-size: 13px;
+      margin: 0 0 15px;
+    }
+
+    #study-app .symbol {
+      width: 43px;
+      height: 43px;
+      border-radius: 10px;
+      background: #eaf0ea;
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      margin-bottom: 13px;
+    }
+
+    #study-app .premium {
+      background: linear-gradient(145deg, #f9e9b6, #ddb647);
+      border: 1px solid #c89b26;
+    }
+
+    #study-app .premium .symbol {
+      background: var(--green);
+      color: #f5d878;
+    }
+
+    #study-app .premium h4 {
+      color: #45350c;
+    }
+    #study-app .premium p {
+      color: #66521e;
+    }
+
+    #study-app .premium .action {
+      display: block;
+      width: 100%;
+      padding: 9px 6px;
+      text-align: center;
+      border-radius: 8px;
+      background: var(--green);
+      color: white;
+      font-size: 13px;
+      font-weight: 800;
+      margin-top: auto;
+    }
+
+    #study-app .simple .action {
+      color: var(--green);
+      font-weight: 800;
+      font-size: 13px;
+      margin-top: auto;
+    }
+
+    #study-app .back {
+      margin-top: 15px;
+      padding: 8px 14px;
+      color: var(--green);
+      background: #eaede6;
+      border: 0;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    #study-app .subject-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    #study-app .subject {
+      width: 100%;
+      border: 1px solid #e7e5dc;
+      border-radius: 9px;
+      background: white;
+      padding: 13px 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: right;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    #study-app .subject .symbol {
+      width: 36px;
+      height: 36px;
+      margin: 0;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+
+    #study-app .arrow {
+      margin-right: auto;
+      color: #849087;
+    }
+
+    #study-app .notice {
+      display: none;
+      background: #f0f2ea;
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 14px;
+      font-size: 13px;
+    }
+
+    /* --- تنسيق الجملة المميزة للجروب المجاني --- */
+    #study-app .promo-banner {
+      display: none;
+      background: linear-gradient(135deg, #073f35, #175246);
+      color: #ffffff;
+      border: 1px solid #d4a72c;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(7, 63, 53, 0.15);
+    }
+
+    #study-app .promo-banner p {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.6;
+      color: #faf9f5;
+    }
+
+    #study-app .promo-banner a {
+      display: inline-block;
+      background: #d4a72c;
+      color: #073f35;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 8px 18px;
+      border-radius: 20px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #study-app .promo-banner a:hover {
+      background: #f5d878;
+      transform: translateY(-1px);
+    }
+
+    /* --- تنسيق الهيدر العلوي لصفحة المتابعة --- */
+    #study-app .tracker-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e2e4e8;
+    }
+
+    #study-app .tracker-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--green);
+      margin: 0;
+    }
+
+    #study-app .back-mini {
+      background: var(--purple);
+      color: white;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        opacity 0.2s,
+        transform 0.1s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
+
+    #study-app .back-mini:hover {
+      opacity: 0.9;
+    }
+
+    #study-app .back-mini:active {
+      transform: scale(0.95);
+    }
+
+    #study-app .tracker-card {
+      background: #f2f3f5;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      border: 1px solid #e2e4e8;
+    }
+
+    #study-app .tracker-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    #study-app .tracker-item-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #000;
+    }
+
+    #study-app .btns-group {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    #study-app .tracker-btn {
+      background: linear-gradient(90deg, #2f1c80, #4b32b3);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      transition: transform 0.1s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    #study-app .tracker-btn:active {
+      transform: scale(0.96);
+    }
+
+    #study-app .tracker-option {
+      background: #e2f8e5;
+      border-radius: 6px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+      font-size: 13px;
+      color: #1b4320;
+      font-weight: 600;
+    }
+
+    #study-app .tracker-option input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: #2b8032;
+    }
+
+    #study-app .progress-bar-container {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #4caf50;
+      color: white;
+      text-align: center;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 6px 0;
+      border-radius: 6px;
+      margin-top: 20px;
+      transition: width 0.3s ease;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #study-app .footer {
+      background: var(--green);
+      color: #f2d98d;
+      text-align: center;
+      padding: 13px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 480px) {
+      #study-app {
+        margin: 8px auto;
+        border-radius: 12px;
+      }
+      #study-app .body {
+        padding: 16px;
+      }
+      #study-app .header {
+        padding: 13px 14px;
+      }
+      #study-app .brand {
+        font-size: 14px;
+      }
+      #study-app h2 {
+        font-size: 23px;
+      }
+      #study-app .cards {
+        grid-template-columns: 1fr;
+      }
+      #study-app .card {
+        padding: 17px;
+      }
+    }
+  </style>
+
+  <header class="header">
+    <div class="brand">
+      <div class="logo">؟</div>
+      <div>
+        <div>أسئلة الجهاز المركزي</div>
+        <div class="header-name">استعد لامتحانك بثقة</div>
+      </div>
+    </div>
+    <div id="sa-user" style="font-size: 12px">أهلاً بك</div>
+  </header>
+
+  <main class="body">
+    <section class="screen active" id="sa-login">
+      <div class="welcome">
+        <h2>ابدأ استعدادك للامتحان</h2>
+        <p class="desc">كل ما تحتاجه للمذاكرة في مكان واحد.</p>
+      </div>
+
+      <form id="sa-form">
+        <label for="sa-name">اكتب اسمك للمتابعة</label>
+        <input
+          class="field"
+          id="sa-name"
+          maxlength="60"
+          placeholder="الاسم بالكامل"
+          required
+        />
+        <button class="btn primary full" type="submit">دخول ←</button>
+      </form>
+    </section>
+
+    <section class="screen" id="sa-home">
+      <div style="margin-bottom: 22px">
+        <h3 id="sa-welcome">أهلاً بك</h3>
+        <p class="desc" style="margin: 0">
+          اختر المحتوى الذي تريد الوصول إليه.
+        </p>
+      </div>
+
+      <div class="cards">
+        <button class="card simple" type="button" id="sa-free">
+          <div class="symbol">▤</div>
+          <h4>المحتوى المجاني</h4>
+          <p>تعرّف على طبيعة الأسئلة وابدأ التدريب.</p>
+          <span class="action">استكشف المحتوى ←</span>
+        </button>
+
+        <button class="card premium" type="button" id="sa-members">
+          <div class="symbol">★</div>
+          <h4>ماتريال جروب المشتركين</h4>
+          <p>أسئلة منظمة، مواد المذاكرة، واختبارات تدريبية.</p>
+          <span class="action">دخول المشتركين ←</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="screen" id="sa-competitions">
+      <h3>اختر المسابقة</h3>
+      <p class="desc">حدد المسابقة لعرض المواد المتاحة.</p>
+
+      <div class="cards">
+        <button class="card simple" data-comp="quran">
+          <div class="symbol">۞</div>
+          <h4>مسابقة القرآن الكريم</h4>
+          <p>مواد الاستعداد لمسابقة القرآن الكريم.</p>
+          <span class="action">عرض المحاور ←</span>
+        </button>
+
+        <button class="card simple" data-comp="arabic_azhar">
+          <div class="symbol">أ</div>
+          <h4>مسابقة عربي أزهر</h4>
+          <p>مواد الاستعداد لمسابقة عربي أزهر.</p>
+          <span class="action">عرض المحاور ←</span>
+        </button>
+
+        <button class="card simple" data-comp="arabic_hessa">
+          <div class="symbol">✎</div>
+          <h4>مسابقة حصة عربي</h4>
+          <p>مواد الاستعداد لمسابقة حصة عربي.</p>
+          <span class="action">عرض المحاور ←</span>
+        </button>
+      </div>
+      <button class="back" data-back="sa-home">→ رجوع</button>
+    </section>
+
+    <section class="screen" id="sa-materials">
+      <h3 id="sa-title">المحاور الأساسية</h3>
+      <p class="desc">اختر المحور الذي تريد مذاكرته.</p>
+
+      <div class="subject-list" id="sa-subject-list"></div>
+
+      <div id="sa-notice" class="notice" role="status"></div>
+
+      <!-- الجملة المميزة باللينك تظهر فقط في المحتوى المجاني -->
+      <div id="sa-promo-banner" class="promo-banner">
+        <p>
+          لسه مَذاكرتش؟ أو عايز تذاكر أهم أسئلة الجهاز المركزي بالتحديثات وتنضم
+          لجروب المشتركين؟
+        </p>
+        <a href="http://t.me/NaglaFG" target="_blank" rel="noopener noreferrer"
+          >تواصل معنا هنا ←</a
+        >
+      </div>
+
+      <button class="back" id="sa-back-btn" data-back="sa-competitions">
+        → الرجوع
+      </button>
+    </section>
+
+    <section class="screen" id="sa-tracker">
+      <div class="tracker-top-bar">
+        <h2 class="tracker-title" id="tr-subject-title">المحور</h2>
+        <button class="back-mini" id="tr-top-back-btn">← رجوع</button>
+      </div>
+
+      <div id="tr-items-container"></div>
+
+      <div class="progress-bar-container" id="tr-progress-bar">0%</div>
+
+      <button
+        class="back"
+        style="background: #3b2890; color: white"
+        id="tr-back-btn"
+      >
+        رجوع
+      </button>
+    </section>
+  </main>
+
+  <footer class="footer">استثمارك في نفسك هو بداية التقدم</footer>
+
+  <script>
+    (function () {
+      const app = document.getElementById("study-app");
+      if (!app) return;
+
+      let currentUser = "";
+      let currentCompKey = "";
+
+      const freeTelegramLinks = {
+        behavioral: "https://t.me/htxchkk/423",
+        iq: "https://t.me/htxchkk/425",
+        general: "https://t.me/htxchkk/440",
+        arabic: "https://t.me/htxchkk/458",
+        english: "https://t.me/htxchkk/451",
+        computer: "https://t.me/htxchkk/441",
+        educational: "https://t.me/example_link_7",
+      };
+
+      const freeSubjects = [
+        { key: "behavioral", name: "الجدرات السلوكية والنفسية", symbol: "✓" },
+        { key: "iq", name: "الايكيو", symbol: "◈" },
+        { key: "general", name: "المعلومات العامة", symbol: "◎" },
+        { key: "arabic", name: "اللغة العربية", symbol: "أ" },
+        { key: "english", name: "اللغة الإنجليزية", symbol: "A" },
+        { key: "computer", name: "محور الحاسب الآلي", symbol: "▣" },
+        { key: "educational", name: "محور التربوي", symbol: "🎓" },
+      ];
+
+      const subscriberData = {
+        behavioral: {
+          title: "الجدرات السلوكية",
+          items: [
+            {
+              title:
+                "شكل الامتحان وازاي تحل الجدارات السلوكية بطريقة صحيحة 100%",
+              video: "https://t.me/c/2299629125/29338/29340",
+              excludeTasks: [
+                "حل الاستفتاءات",
+                "مذاكرة النموذج",
+                "حل الاختبار بوقت",
+              ],
+            },
+            {
+              title: "اختبار الجدارات السلوكية",
+              test: "https://t.me/c/2299629125/13/63276",
+              excludeTasks: [
+                "مذاكرة النموذج",
+                "حل الاستفتاءات",
+                "مشاهدة الفيديو",
+              ],
+            },
+          ],
+        },
+        iq: {
+          title: "الايكيو",
+          items: [
+            {
+              title: "بداية اي كيو الفديو الاول",
+              video: "https://t.me/c/2299629125/15163/79837",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "ايكيو الجمع والطرح",
+              video: "https://t.me/c/2299629125/15163/79892",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "ايكيو الضلع المشترك وغير المشترك",
+              video: "https://t.me/c/2299629125/15163/79892",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "اي كيو القواعد الصعبة",
+              video: "https://t.me/c/2299629125/15163/79913",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "اشكال التسلسل ملونة",
+              video: "https://t.me/c/2299629125/15163/79930",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "اشكال قاعدة الانفاق",
+              video: "https://t.me/c/2299629125/15163/79959",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "شرح متتاليات الارقام",
+              video: "https://t.me/c/2299629125/15163/79973",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "ايكيو محلول قاصوليا البيتزا وعمر",
+              video: "https://t.me/c/2299629125/15163/79995",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "عشر اشكال مهمة",
+              video: "https://t.me/c/2299629125/15163/80006",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "ايكيو السمكة واليد",
+              video: "https://t.me/c/2299629125/15163/80017",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "اشكال التجميع xyz",
+              video: "https://t.me/c/2299629125/15163/80033",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "اشكال الميزان",
+              video: "https://t.me/c/2299629125/15163/80062",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "شرح طي الورق الجزء الأول",
+              video: "https://t.me/c/2299629125/15163/80113",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "شرح طي الورق الجزء الثاني",
+              video: "https://t.me/c/2299629125/15163/80127",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "المكعبات الجزء الاول",
+              video: "https://t.me/c/2299629125/15163/80141",
+              excludeTasks: ["حل الاستفتاءات"],
+            },
+            {
+              title: "المكعبات الحزء التاني",
+              video: "https://t.me/c/2299629125/15163/80157",
+              excludeTasks: ["حل الاستفتاءات"],
+            },
+            {
+              title: "تدوير المكعبات",
+              video: "https://t.me/c/2299629125/15163/80170",
+              excludeTasks: ["حل الاستفتاءات"],
+            },
+            {
+              title: "المصفوفات",
+              video: "https://t.me/c/2299629125/15163/80202",
+              excludeTasks: ["حل الاستفتاءات"],
+            },
+            {
+              title: "اشكال جت في مسابقات عربي",
+              video: "https://t.me/c/2299629125/15163/80224",
+              excludeTasks: ["حل الاستفتاءات"],
+            },
+            {
+              title: "فديو اختر نفس الشكل بغض النظر عن الاتجاه",
+              video: "https://t.me/c/2299629125/15163/80279",
+              excludeTasks: ["حل الاستفتاءات"],
+            },
+          ],
+        },
+        general: {
+          title: "معلومات عامة",
+          items: [
+            {
+              title:
+                "أهم الأسئلة المتداولة حاليًا لازم تكون عارفها قبل ما تدخل الامتحان",
+              file: "https://t.me/c/2299629125/2/72147",
+              customTasks: [
+                { label: "مذاكرة الأسئلة", idKey: "m1" },
+                { label: "حل الاختبار بوقت", idKey: "q1" },
+                { label: "مذاكرة الأسئلة", idKey: "m2" },
+                { label: "حل الاختبار بوقت", idKey: "q2" },
+                { label: "حل الاستفتاءات", idKey: "s1" },
+              ],
+            },
+            {
+              title: "محاور وكباري",
+              file: "https://t.me/c/2299629125/2/34633?single",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "مبادرات",
+              file: "https://t.me/c/2299629125/2/72090",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "المرأة",
+              file: "https://t.me/c/2299629125/2/72120",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "اسئلة علوم",
+              file: "https://t.me/c/2299629125/2/72005",
+              excludeTasks: ["حل الاستفتاءات", "مشاهدة الفيديو"],
+            },
+            {
+              title: "اهم المنظمات العالمية",
+              file: "https://t.me/c/2299629125/2/35213",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "اقاليم مصر الاقتصادية",
+              file: "https://t.me/c/2299629125/2/35024",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "اسئلة الفساد",
+              file: "https://t.me/c/2299629125/2/57514",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "المتحف المصري",
+              file: "https://t.me/c/2299629125/2/63142",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "حكام مصر",
+              file: "https://t.me/c/2299629125/2/35003",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "صوامع مصر",
+              file: "https://t.me/c/2299629125/2/34792",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 1",
+              file: "https://t.me/c/2299629125/2/30375",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 2",
+              file: "https://t.me/c/2299629125/2/30396",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 3",
+              file: "https://t.me/c/2299629125/2/30428",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 4",
+              file: "https://t.me/c/2299629125/2/30449",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 5",
+              file: "https://t.me/c/2299629125/2/30470",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 6",
+              file: "https://t.me/c/2299629125/2/30492",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 7",
+              file: "https://t.me/c/2299629125/2/30513",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 8",
+              file: "https://t.me/c/2299629125/2/30540",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 9",
+              file: "https://t.me/c/2299629125/2/30560",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 10",
+              file: "https://t.me/c/2299629125/2/30581",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 11",
+              file: "https://t.me/c/2299629125/2/31259",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 12",
+              file: "https://t.me/c/2299629125/2/31280",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 13",
+              file: "https://t.me/c/2299629125/2/31302",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 14",
+              file: "https://t.me/c/2299629125/2/31327",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 15",
+              file: "https://t.me/c/2299629125/2/31348",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 16",
+              file: "https://t.me/c/2299629125/2/31370",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 17",
+              file: "https://t.me/c/2299629125/2/31393",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 18",
+              file: "https://t.me/c/2299629125/2/31415",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 19",
+              file: "https://t.me/c/2299629125/2/31437",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 20",
+              file: "https://t.me/c/2299629125/2/31460",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 21",
+              file: "https://t.me/c/2299629125/37610",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 22",
+              file: "https://t.me/c/2299629125/37611",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 23",
+              file: "https://t.me/c/2299629125/31488",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 24",
+              file: "https://t.me/c/2299629125/2/41888",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 25",
+              file: "https://t.me/c/2299629125/2/41911",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 26",
+              file: "https://t.me/c/2299629125/2/41934",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 27",
+              file: "https://t.me/c/2299629125/2/41957",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 28",
+              file: "https://t.me/c/2299629125/2/41979",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 29",
+              file: "https://t.me/c/2299629125/2/42398",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 30",
+              file: "https://t.me/c/2299629125/2/43285",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 31",
+              file: "https://t.me/c/2299629125/2/43602",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 32",
+              file: "https://t.me/c/2299629125/2/46052",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 33",
+              file: "https://t.me/c/2299629125/2/49787",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 34",
+              file: "https://t.me/c/2299629125/2/49831",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 35",
+              file: "https://t.me/c/2299629125/2/55655",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 36",
+              file: "https://t.me/c/2299629125/2/55678",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 37",
+              file: "https://t.me/c/2299629125/2/55701",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 38",
+              file: "https://t.me/c/2299629125/2/56421",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 39",
+              file: "https://t.me/c/2299629125/2/56444",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 40",
+              file: "https://t.me/c/2299629125/2/71808",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 41",
+              file: "https://t.me/c/2299629125/2/71828",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "النموذج 42",
+              file: "https://t.me/c/2299629125/2/71849",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+          ],
+        },
+        computer: {
+          title: "محور الحاسب الآلي",
+          items: [
+            {
+              title:
+                "أهم الأسئلة المتداولة حاليًا لازم تكون عارفها قبل ما تدخل الامتحان",
+              file: "https://t.me/c/2299629125/64552/74988",
+              customTasks: [
+                { label: "مذاكرة الأسئلة", idKey: "m1" },
+                { label: "حل الاختبار بوقت", idKey: "q1" },
+                { label: "مذاكرة الأسئلة", idKey: "m2" },
+                { label: "حل الاختبار بوقت", idKey: "q2" },
+                { label: "حل الاستفتاءات", idKey: "s1" },
+              ],
+            },
+            {
+              title: "توضيح لنظام الحاسب",
+              video: "https://t.me/c/2299629125/64552/64555",
+              excludeTasks: [
+                "مذاكرة النموذج",
+                "حل الاستفتاءات",
+                "حل الاختبار بوقت",
+              ],
+            },
+            {
+              title: "مقدمة أساسيات الكمبيوتر",
+              video: "https://t.me/c/2299629125/64552/64559",
+              file: "https://t.me/c/2299629125/64552/64560",
+            },
+            {
+              title: "أساسيات - النموذج رقم 1",
+              video: "https://t.me/c/2299629125/64552/64561",
+              file: "https://t.me/c/2299629125/64552/64562",
+            },
+            {
+              title: "أساسيات - النموذج رقم 2",
+              video: "https://t.me/c/2299629125/64552/64584",
+              file: "https://t.me/c/2299629125/64552/64585",
+            },
+            {
+              title: "أساسيات - النموذج رقم 3",
+              video: "https://t.me/c/2299629125/64552/64606",
+              file: "https://t.me/c/2299629125/64552/64607",
+            },
+            {
+              title: "أساسيات - النموذج رقم 4",
+              video: "https://t.me/c/2299629125/64552/64628",
+              file: "https://t.me/c/2299629125/64552/64629",
+            },
+            {
+              title: "أساسيات - النموذج رقم 5",
+              video: "https://t.me/c/2299629125/64552/64685",
+              file: "https://t.me/c/2299629125/64552/64684",
+            },
+            {
+              title: "أساسيات - النموذج رقم 6",
+              video: "https://t.me/c/2299629125/64552/64707",
+              file: "https://t.me/c/2299629125/64552/64708",
+            },
+            {
+              title: "أساسيات - النموذج رقم 7",
+              video: "https://t.me/c/2299629125/64552/64729",
+              file: "https://t.me/c/2299629125/64552/64730",
+            },
+            {
+              title: "أساسيات - النموذج رقم 8",
+              video: "https://t.me/c/2299629125/64552/64751",
+              file: "https://t.me/c/2299629125/64552/64752",
+            },
+            {
+              title: "أساسيات - النموذج رقم 9",
+              video: "https://t.me/c/2299629125/64552/64772",
+              file: "https://t.me/c/2299629125/64552/64773",
+            },
+            {
+              title: "أساسيات - النموذج رقم 10",
+              video: "https://t.me/c/2299629125/64552/64794",
+              file: "https://t.me/c/2299629125/64552/64795",
+            },
+            {
+              title: "أساسيات - النموذج رقم 11",
+              video: "https://t.me/c/2299629125/64552/64816",
+              file: "https://t.me/c/2299629125/64552/64817",
+            },
+            {
+              title: "أساسيات - النموذج رقم 12",
+              video: "https://t.me/c/2299629125/64552/64838",
+              file: "https://t.me/c/2299629125/64552/64839",
+            },
+            {
+              title: "أساسيات - النموذج رقم 13",
+              video: "https://t.me/c/2299629125/64552/64860",
+              file: "https://t.me/c/2299629125/64552/64861",
+            },
+            {
+              title: "أساسيات - النموذج رقم 14",
+              video: "https://t.me/c/2299629125/64552/64882",
+              file: "https://t.me/c/2299629125/64552/64883",
+            },
+            {
+              title: "أساسيات - النموذج رقم 15",
+              video: "https://t.me/c/2299629125/64552/64904",
+              file: "https://t.me/c/2299629125/64552/64905",
+            },
+            {
+              title: "أساسيات - النموذج رقم 16",
+              video: "https://t.me/c/2299629125/64552/74708",
+              file: "https://t.me/c/2299629125/64552/74709",
+            },
+            {
+              title: "أساسيات - النموذج رقم 17",
+              video: "https://t.me/c/2299629125/64552/74751",
+              file: "https://t.me/c/2299629125/64552/74752",
+            },
+            {
+              title: "أساسيات - النموذج رقم 18",
+              video: "https://t.me/c/2299629125/64552/74963",
+              file: "https://t.me/c/2299629125/64552/74964",
+            },
+            {
+              title: "مقدمة برنامج الوورد",
+              video: "https://t.me/c/2299629125/64552/64930",
+              file: "https://t.me/c/2299629125/64552/64931",
+            },
+            {
+              title: "وورد - النموذج رقم 1",
+              video: "https://t.me/c/2299629125/64552/64932",
+              file: "https://t.me/c/2299629125/64552/64933",
+            },
+            {
+              title: "وورد - النموذج رقم 2",
+              video: "https://t.me/c/2299629125/64552/64955",
+              file: "https://t.me/c/2299629125/64552/64956",
+            },
+            {
+              title: "وورد - النموذج رقم 3",
+              video: "https://t.me/c/2299629125/64552/64977",
+              file: "https://t.me/c/2299629125/64552/64978",
+            },
+            {
+              title: "وورد - النموذج رقم 4",
+              video: "https://t.me/c/2299629125/64552/64999",
+              file: "https://t.me/c/2299629125/64552/65000",
+            },
+            {
+              title: "وورد - النموذج رقم 5",
+              video: "https://t.me/c/2299629125/64552/65021",
+              file: "https://t.me/c/2299629125/64552/65022",
+            },
+            {
+              title: "وورد - النموذج رقم 6",
+              video: "https://t.me/c/2299629125/64552/65041",
+              file: "https://t.me/c/2299629125/64552/65042",
+            },
+            {
+              title: "وورد - النموذج رقم 7",
+              video: "https://t.me/c/2299629125/64552/65063",
+              file: "https://t.me/c/2299629125/64552/65064",
+            },
+            {
+              title: "وورد - النموذج رقم 8",
+              video: "https://t.me/c/2299629125/64552/65085",
+              file: "https://t.me/c/2299629125/64552/65086",
+            },
+            {
+              title: "مقدمة برنامج الإكسل",
+              video: "https://t.me/c/2299629125/64552/65120",
+              file: "https://t.me/c/2299629125/64552/65121",
+            },
+            {
+              title: "إكسل - النموذج رقم 1",
+              video: "https://t.me/c/2299629125/64552/65122",
+              file: "https://t.me/c/2299629125/64552/65123",
+            },
+            {
+              title: "إكسل - النموذج رقم 2",
+              video: "https://t.me/c/2299629125/64552/65144",
+              file: "https://t.me/c/2299629125/64552/65145",
+            },
+            {
+              title: "إكسل - النموذج رقم 3",
+              video: "https://t.me/c/2299629125/64552/65166",
+              file: "https://t.me/c/2299629125/64552/65167",
+            },
+            {
+              title: "إكسل - النموذج رقم 4",
+              video: "https://t.me/c/2299629125/64552/65187",
+              file: "https://t.me/c/2299629125/64552/65188",
+            },
+            {
+              title: "إكسل - النموذج رقم 5",
+              video: "https://t.me/c/2299629125/64552/65209",
+              file: "https://t.me/c/2299629125/64552/65210",
+            },
+            {
+              title: "إكسل - النموذج رقم 6",
+              video: "https://t.me/c/2299629125/64552/65244",
+              file: "https://t.me/c/2299629125/64552/65245",
+            },
+            {
+              title: "إكسل - النموذج رقم 7",
+              video: "https://t.me/c/2299629125/64552/65267",
+              file: "https://t.me/c/2299629125/64552/65268",
+            },
+            {
+              title: "إكسل - النموذج رقم 8",
+              video: "https://t.me/c/2299629125/64552/65288",
+              file: "https://t.me/c/2299629125/64552/65289",
+            },
+            {
+              title: "إكسل - النموذج رقم 9",
+              video: "https://t.me/c/2299629125/64552/65310",
+              file: "https://t.me/c/2299629125/64552/65311",
+            },
+            {
+              title: "مقدمة برنامج الباوربوينت",
+              video: "https://t.me/c/2299629125/64552/65337",
+              file: "https://t.me/c/2299629125/64552/65338",
+            },
+            {
+              title: "باوربوينت - النموذج رقم 1",
+              video: "https://t.me/c/2299629125/64552/65339",
+              file: "https://t.me/c/2299629125/64552/65340",
+            },
+            {
+              title: "باوربوينت - النموذج رقم 2",
+              video: "https://t.me/c/2299629125/64552/65358",
+              file: "https://t.me/c/2299629125/64552/65359",
+            },
+            {
+              title: "باوربوينت - النموذج رقم 3",
+              video: "https://t.me/c/2299629125/64552/65381",
+              file: "https://t.me/c/2299629125/64552/65382",
+            },
+            {
+              title: "مقدمة برنامج الاكسس",
+              video: "https://t.me/c/2299629125/64552/65410",
+              file: "https://t.me/c/2299629125/64552/65411",
+            },
+            {
+              title: "اكسس - النموذج رقم 1",
+              video: "https://t.me/c/2299629125/64552/65412",
+              file: "https://t.me/c/2299629125/64552/65413",
+            },
+            {
+              title: "اكسس - النموذج رقم 2",
+              video: "https://t.me/c/2299629125/64552/65432",
+              file: "https://t.me/c/2299629125/64552/65433",
+            },
+            {
+              title: "اكسس - النموذج رقم 3",
+              video: "https://t.me/c/2299629125/64552/65453",
+              file: "https://t.me/c/2299629125/64552/65454",
+            },
+            {
+              title: "مقدمة الإنترنت والإيميل",
+              video: "https://t.me/c/2299629125/64552/65480",
+              file: "https://t.me/c/2299629125/64552/65481",
+            },
+            {
+              title: "الإنترنت والإيميل - النموذج رقم 1",
+              video: "https://t.me/c/2299629125/64552/65482",
+              file: "https://t.me/c/2299629125/64552/65483",
+            },
+            {
+              title: "الإنترنت والإيميل - النموذج رقم 2",
+              video: "https://t.me/c/2299629125/64552/65504",
+              file: "https://t.me/c/2299629125/64552/65505",
+            },
+            {
+              title: "الإنترنت والإيميل - النموذج رقم 3",
+              video: "https://t.me/c/2299629125/64552/65526",
+              file: "https://t.me/c/2299629125/64552/65527",
+            },
+            {
+              title: "الإنترنت والإيميل - النموذج رقم 4",
+              video: "https://t.me/c/2299629125/64552/65548",
+              file: "https://t.me/c/2299629125/64552/65549",
+            },
+            {
+              title: "الإنترنت والإيميل - النموذج رقم 5",
+              video: "https://t.me/c/2299629125/64552/65570",
+              file: "https://t.me/c/2299629125/64552/65571",
+            },
+            {
+              title: "الإنترنت والإيميل - النموذج رقم 6",
+              video: "https://t.me/c/2299629125/64552/65592",
+              file: "https://t.me/c/2299629125/64552/65593",
+            },
+            {
+              title: "الإنترنت والإيميل - النموذج رقم 7",
+              video: "https://t.me/c/2299629125/64552/65614",
+              file: "https://t.me/c/2299629125/64552/65635",
+            },
+            {
+              title: "وحدات الإدخال والإخراج",
+              file: "https://t.me/c/2299629125/64552/70534",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "اختصارات الحاسب",
+              file: "https://t.me/c/2299629125/64552/71398",
+              video: "https://t.me/c/2299629125/64552/71397",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+            {
+              title: "الاختصارات المستخدمة بكثرة Outlook",
+              file: "https://t.me/c/2299629125/64552/71360",
+              excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
+            },
+          ],
+        },
+        arabic: {
+          title: "اللغة العربية",
+          items: [
+            {
+              title: "النموذج 1",
+              file: "https://t.me/c/2299629125/5/61427",
+              video:
+                "https://www.youtube.com/watch?v=wlBIvz_dTXE&list=PLKHgsIVJSkMfDPWxH3uf8SukNGtYB3l4d",
+            },
+            {
+              title: "النموذج 2",
+              file: "https://t.me/c/2299629125/5/61439",
+              video: "https://youtu.be/q1-auicu-bE?si=Mk9_NTSlv5sNT-Aw",
+            },
+            {
+              title: "النموذج 3",
+              file: "https://t.me/c/2299629125/5/61460",
+              video: "https://youtu.be/AhYq6ZZiKVQ?si=2nNg7hIFm560Ou70",
+            },
+            {
+              title: "النموذج 4",
+              file: "https://t.me/c/2299629125/5/61484",
+              video: "https://youtu.be/EnRTnXnSEYk?si=F3Y7A1QROQlBqZLE",
+            },
+            {
+              title: "النموذج 5",
+              file: "https://t.me/c/2299629125/5/61530",
+              video: "https://youtu.be/PGZ0TV8jTCs?si=eh5hPJCPUyuvphvS",
+            },
+            {
+              title: "النموذج 6",
+              file: "https://t.me/c/2299629125/5/61548",
+              video: "https://youtu.be/kYQr7_15wQE?si=hVS9w7xCwQLBaocs",
+            },
+            {
+              title: "النموذج 7",
+              file: "https://t.me/c/2299629125/5/61568",
+              video: "https://youtu.be/YQDznKlEkrI?si=DS3N82rUQiIsheeI",
+            },
+            {
+              title: "النموذج 8",
+              file: "https://t.me/c/2299629125/5/61578",
+              video: "https://youtu.be/5mSEfprkYUc?si=vVCTYSBSeqwsR43B",
+            },
+            {
+              title: "النموذج 9",
+              file: "https://t.me/c/2299629125/5/62088",
+              video: "https://youtu.be/D36OQYWPAs0?si=yXgEJorDHPbbjAdS",
+            },
+            {
+              title: "النموذج 10",
+              file: "https://t.me/c/2299629125/5/62102",
+              video: "https://youtu.be/TLlsGuLN2HI?si=4U4SVzP-cCwMbSs2",
+            },
+            {
+              title: "النموذج 11",
+              file: "https://t.me/c/2299629125/5/62126",
+              video: "https://youtu.be/Jp-Wdxm8lx8?si=FaG6eAM82sw21ICe",
+            },
+            {
+              title: "النموذج 12",
+              file: "https://t.me/c/2299629125/5/62143",
+              video: "https://youtu.be/Fu7WGlj6Qb0?si=SmD3imOvib3oVv7R",
+            },
+            {
+              title: "النموذج 13",
+              file: "https://t.me/c/2299629125/5/62165",
+              video: "https://youtu.be/wgNUImdSLr8?si=0mWAKybdcQd4jl7A",
+            },
+            {
+              title: "النموذج 14",
+              file: "https://t.me/c/2299629125/5/62183",
+              video: "https://youtu.be/bIMfCEPEDhI?si=ON-00tI1j88UD0Bw",
+            },
+            {
+              title: "النموذج 15",
+              file: "https://t.me/c/2299629125/5/62196",
+              video: "https://youtu.be/Cpv1SpgNJzY?si=4L29c0xtPwRR1bQb",
+            },
+            {
+              title: "النموذج 16",
+              file: "https://t.me/c/2299629125/5/62208",
+              video: "https://youtu.be/ZDSbRvYQhXM?si=057uoh--U0IHEnvd",
+            },
+            {
+              title: "النموذج 17",
+              file: "https://t.me/c/2299629125/5/62238",
+              video: "https://youtu.be/bNJ08KVhME8?si=URXm9Zc7K_dmtOO4",
+            },
+            {
+              title: "النموذج 18",
+              file: "https://t.me/c/2299629125/5/62270",
+              video: "https://youtu.be/sNMIx4cWDxQ?si=TXWvFl1uzlhkR7yb",
+            },
+            {
+              title: "النموذج 19",
+              file: "https://t.me/c/2299629125/5/62288",
+              video: "https://youtu.be/YIip1TLq0uA?si=rK2RfwJtkuIOo0f-",
+            },
+            {
+              title: "النموذج 20",
+              file: "https://t.me/c/2299629125/5/62312",
+              video: "https://youtu.be/NV1GSx-TQZ0?si=hGlpy3NSywkyhWTD",
+            },
+            {
+              title: "النموذج 21",
+              file: "https://t.me/c/2299629125/5/62341",
+              video: "https://youtu.be/J0qu40m40M0?si=7l2xDnPpkWlFJJNY",
+            },
+            {
+              title: "النموذج 22",
+              file: "https://t.me/c/2299629125/5/62384",
+              video: "https://youtu.be/srGN9-uesWY?si=ScPKkBi8aWrxVQnW",
+            },
+            {
+              title: "النموذج 23",
+              file: "https://t.me/c/2299629125/5/62399",
+              video: "https://youtu.be/GuoKsTX3m2I?si=G1mtTfy83iwFw6B0",
+            },
+            {
+              title: "النموذج 24",
+              file: "https://t.me/c/2299629125/5/62420",
+              video: "https://youtu.be/S1B5FY5A5Xc?si=coC2Ejl5JqLhA2Ic",
+            },
+            {
+              title: "النموذج 25",
+              file: "https://t.me/c/2299629125/5/62429",
+              video: "https://youtu.be/nvy5_LYNChU?si=gmxFXgHV0cGuZFbn",
+            },
+            {
+              title: "النموذج 26",
+              file: "https://t.me/c/2299629125/5/62447",
+              video: "https://youtu.be/N-oOT7Og85o?si=UsJil_LlTPdSxYYN",
+            },
+            {
+              title: "النموذج 27",
+              file: "https://t.me/c/2299629125/5/64534",
+              video: "https://youtu.be/qAPC9Hy7WsM?si=Ff6GWdmTxjLInsDn",
+            },
+            {
+              title: "النموذج 28",
+              file: "https://t.me/c/2299629125/5/68754",
+              video: "https://youtu.be/Wnh0wlZWpMI?si=JI3JH1vO3WsDc57t",
+            },
+            {
+              title: "النموذج 29",
+              file: "https://t.me/c/2299629125/5/71441",
+              video: "https://youtu.be/0HDtQPxbJ1E?si=Jc6bEAaFKX5cENZS",
+            },
+            {
+              title: "النموذج 30",
+              file: "https://t.me/c/2299629125/5/72606",
+              video: "https://youtu.be/z8ETTZZKfrI?si=7eLC_F15DOhSSU1P",
+            },
+            {
+              title: "النموذج 31",
+              file: "https://t.me/c/2299629125/5/74251",
+              video: "https://youtu.be/hMnAirpT7-A?si=bn_6tFBNxhC6cVGO",
+            },
+            {
+              title: "النموذج 32",
+              file: "https://t.me/c/2299629125/5/82850",
+              video: "https://youtu.be/vkMbK2KNwq0?si=n92bhzlAtyZdSCME",
+            },
+            {
+              title: "النموذج 33",
+              file: "https://t.me/c/2299629125/5/83584",
+              video: "https://youtu.be/-JHRQB8Kzvo?si=fWQ5AbyHMciZ39hB",
+            },
+            {
+              title: "تمييز العدد",
+              video: "https://t.me/c/2299629125/5/52354",
+              excludeTasks: ["مذاكرة النموذج", "حل الاختبار بوقت"],
+            },
+            {
+              title: "الحروف الناسخة",
+              video: "https://t.me/c/2299629125/5/52370",
+              excludeTasks: ["مذاكرة النموذج", "حل الاختبار بوقت"],
+            },
+            {
+              title: "الهمزات",
+              video: "https://t.me/c/2299629125/5/52381",
+              excludeTasks: ["مذاكرة النموذج", "حل الاختبار بوقت"],
+            },
+            {
+              title: "أدوات نصب وجزم الفعل المضارع",
+              video: "https://t.me/c/2299629125/5/52414",
+              excludeTasks: ["مذاكرة النموذج", "حل الاختبار بوقت"],
+            },
+            {
+              title: "اللام القمرية واللام الشمسية",
+              video: "https://t.me/c/2299629125/5/52435",
+              excludeTasks: ["مذاكرة النموذج", "حل الاختبار بوقت"],
+            },
+            {
+              title: "أنواع الجموع",
+              video: "https://t.me/c/2299629125/5/52441",
+              excludeTasks: ["مذاكرة النموذج", "حل الاختبار بوقت"],
+            },
+            {
+              title: "نون الوقاية",
+              video: "https://youtu.be/NK5DBHH3zEs?si=8lXpVP5VIKKscWk4",
+              excludeTasks: ["مذاكرة النموذج", "حل الاختبار بوقت"],
+            },
+            {
+              title: "الأسماء الخمسة",
+              video: "https://t.me/c/2299629125/5/52471",
+              excludeTasks: ["مذاكرة النموذج", "حل الاختبار بوقت"],
+            },
+          ],
+        },
+        english: {
+          title: "اللغة الإنجليزية",
+          items: [
+            {
+              title: "نموذج ١ (شرح الأزمنة المهمه وشكل السؤال)",
+              file: "https://t.me/c/2299629125/65761/65766",
+              video: "https://t.me/c/2299629125/65761/65766",
+            },
+            {
+              title: "نموذج ٢ (الكلمة وعكسها + معرفة عامة)",
+              file: "https://t.me/c/2299629125/65761/65789",
+              video: "https://t.me/c/2299629125/65761/65789",
+            },
+            {
+              title: "نموذج ٣ (كمال اسئلة المعرفة العامة)",
+              file: "https://t.me/c/2299629125/65761/65811",
+              video: "https://t.me/c/2299629125/65761/65834",
+            },
+            {
+              title: "نموذج ٤ (كمال اسئلة المعرفة العامة)",
+              file: "https://t.me/c/2299629125/65761/65855",
+              video: "https://t.me/c/2299629125/65761/65856",
+            },
+            {
+              title: "نموذج ٥ (كمال اسئلة المعرفة العامة)",
+              file: "https://t.me/c/2299629125/65761/65878",
+              video: "https://t.me/c/2299629125/65761/65880",
+            },
+            {
+              title: "نموذج ٦ (كمال اسئلة المعرفة العامة)",
+              file: "https://t.me/c/2299629125/65761/65901",
+              video: "https://t.me/c/2299629125/65761/65903",
+            },
+            {
+              title: "نموذج ٧ (كمال اسئلة المعرفة العامة)",
+              file: "https://t.me/c/2299629125/65761/65922",
+              video: "https://t.me/c/2299629125/65761/65924",
+            },
+            {
+              title: "نموذج ٨ (صفات المقارنة والترادف والتضاد والحال)",
+              file: "https://t.me/c/2299629125/65761/65944",
+              video: "https://t.me/c/2299629125/65761/65946",
+            },
+            {
+              title: "نموذج ٩ (صفات التفضيل وعكس الكلمات)",
+              file: "https://t.me/c/2299629125/65761/65967",
+              video: "https://t.me/c/2299629125/65761/65969",
+            },
+            {
+              title: "نموذج ١٠ (عكس الكلمة وجمع الكلمات Plurals)",
+              file: "https://t.me/c/2299629125/65761/65990",
+              video: "https://t.me/c/2299629125/65761/65992",
+            },
+            {
+              title: "نموذج ١١ (أدوات الاستفهام والنكرة وحروف الجر)",
+              file: "https://t.me/c/2299629125/65761/66013",
+              video: "https://t.me/c/2299629125/65761/66015",
+            },
+            {
+              title: "نموذج ١٢ (ضمائر الإشارة وتصريفات الفعل)",
+              file: "https://t.me/c/2299629125/65761/66036",
+              video: "https://t.me/c/2299629125/65761/66038",
+            },
+            {
+              title: "نموذج ١٣ (الأسماء المعدودة وغير المعدودة وأدوات الربط)",
+              file: "https://t.me/c/2299629125/65761/66059",
+              video: "https://t.me/c/2299629125/65761/66061",
+            },
+            {
+              title: "نموذج ١٤ (الأفعال المساعدة وحالات IF)",
+              file: "https://t.me/c/2299629125/65761/66081",
+              video: "https://t.me/c/2299629125/65761/66083",
+            },
+            {
+              title: "نموذج ١٥ (أنواع الضمائر المختلفة)",
+              file: "https://t.me/c/2299629125/65761/66104",
+              video: "https://t.me/c/2299629125/65761/66106",
+            },
+            {
+              title: "نموذج ١٦ (الفعل المركب والأفعال الناقصة)",
+              file: "https://t.me/c/2299629125/65761/66127",
+              video: "https://t.me/c/2299629125/65761/66129",
+            },
+            {
+              title: "نموذج 17",
+              file: "https://t.me/c/2299629125/65761/66150",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 18",
+              file: "https://t.me/c/2299629125/65761/66173",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 19",
+              file: "https://t.me/c/2299629125/65761/66196",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 20",
+              file: "https://t.me/c/2299629125/65761/66218",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 21",
+              file: "https://t.me/c/2299629125/65761/66240",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 22",
+              file: "https://t.me/c/2299629125/65761/66262",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 23",
+              file: "https://t.me/c/2299629125/65761/66286",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 24",
+              file: "https://t.me/c/2299629125/65761/66306",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 25",
+              file: "https://t.me/c/2299629125/65761/66328",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 26",
+              file: "https://t.me/c/2299629125/65761/66348",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 27",
+              file: "https://t.me/c/2299629125/65761/66496",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 28",
+              file: "https://t.me/c/2299629125/65761/72074",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+          ],
+        },
+        educational: {
+          title: "المحور التربوي",
+          items: [
+            {
+              title: "نموذج 1",
+              file: "https://t.me/c/2299629125/19608/67252",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 2",
+              file: "https://t.me/c/2299629125/19608/67302",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 3",
+              file: "https://t.me/c/2299629125/19608/67405",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 4",
+              file: "https://t.me/c/2299629125/19608/67447",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 5",
+              file: "https://t.me/c/2299629125/19608/67509",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 6",
+              file: "https://t.me/c/2299629125/19608/67602",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 7",
+              file: "https://t.me/c/2299629125/19608/67643",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 8",
+              file: "https://t.me/c/2299629125/19608/67684",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 9",
+              file: "https://t.me/c/2299629125/19608/67725",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 10",
+              file: "https://t.me/c/2299629125/19608/67765",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 11",
+              file: "https://t.me/c/2299629125/19608/67823",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 12",
+              file: "https://t.me/c/2299629125/19608/67872",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 13",
+              file: "https://t.me/c/2299629125/19608/67912",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 14",
+              file: "https://t.me/c/2299629125/19608/67948",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 15",
+              file: "https://t.me/c/2299629125/19608/67996",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 16",
+              file: "https://t.me/c/2299629125/19608/68042",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 17",
+              file: "https://t.me/c/2299629125/19608/68089",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 18",
+              file: "https://t.me/c/2299629125/19608/68133",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 19",
+              file: "https://t.me/c/2299629125/19608/68174",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 20",
+              file: "https://t.me/c/2299629125/19608/68216",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 21",
+              file: "https://t.me/c/2299629125/19608/68274",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 22",
+              file: "https://t.me/c/2299629125/19608/68327",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 23",
+              file: "https://t.me/c/2299629125/19608/68373",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 24",
+              file: "https://t.me/c/2299629125/19608/68417",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 25",
+              file: "https://t.me/c/2299629125/19608/68458",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+            {
+              title: "نموذج 26",
+              file: "https://t.me/c/2299629125/19608/68497",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+          ],
+        },
+        quran_spec: {
+          title: "أهم أسئلة التخصص",
+          items: [
+            {
+              title: "أسئلة تخصص القرآن الكريم",
+              file: "https://t.me/c/2299629125/80325/81828",
+              excludeTasks: ["مشاهدة الفيديو"],
+            },
+          ],
+        },
+        azhar_spec: {
+          title: "أهم أسئلة التخصص",
+          items: [
+            {
+              title: "أسئلة تخصص لغة عربية أزهر",
+              file: "https://t.me/c/2299629125/37360/86340",
+              video: "https://t.me/c/2299629125/37360/86340",
+            },
+          ],
+        },
+        hessa_spec: {
+          title: "أهم أسئلة اللغة العربية",
+          items: [
+            {
+              title: "أسئلة تخصص لغة عربية (حصة)",
+              file: "https://t.me/c/2299629125/37360/84623",
+              video: "https://t.me/c/2299629125/37360/84623",
+            },
+          ],
+        },
+      };
+
+      const competitionsData = {
+        quran: {
+          title: "مسابقة القرآن الكريم",
+          subjects: [
+            {
+              key: "behavioral",
+              name: "الجدرات السلوكية والنفسية",
+              symbol: "✓",
+            },
+            { key: "iq", name: "الايكيو", symbol: "◈" },
+            { key: "general", name: "المعلومات العامة", symbol: "◎" },
+            { key: "arabic", name: "اللغة العربية", symbol: "أ" },
+            { key: "english", name: "اللغة الإنجليزية", symbol: "A" },
+            { key: "computer", name: "محور الحاسب الآلي", symbol: "▣" },
+            { key: "educational", name: "محور التربوي", symbol: "🎓" },
+            { key: "quran_spec", name: "تخصص قرآن", symbol: "۞" },
+          ],
+        },
+        arabic_azhar: {
+          title: "مسابقة عربي أزهر",
+          subjects: [
+            {
+              key: "behavioral",
+              name: "الجدرات السلوكية والنفسية",
+              symbol: "✓",
+            },
+            { key: "iq", name: "الايكيو", symbol: "◈" },
+            { key: "general", name: "المعلومات العامة", symbol: "◎" },
+            { key: "arabic", name: "اللغة العربية", symbol: "أ" },
+            { key: "english", name: "اللغة الإنجليزية", symbol: "A" },
+            { key: "computer", name: "محور الحاسب الآلي", symbol: "▣" },
+            { key: "educational", name: "محور التربوي", symbol: "🎓" },
+            { key: "azhar_spec", name: "تخصص لغة عربية أزهر", symbol: "📖" },
+          ],
+        },
+        arabic_hessa: {
+          title: "مسابقة حصة عربي",
+          subjects: [
+            {
+              key: "behavioral",
+              name: "الجدرات السلوكية والنفسية",
+              symbol: "✓",
+            },
+            { key: "iq", name: "الايكيو", symbol: "◈" },
+            { key: "general", name: "المعلومات العامة", symbol: "◎" },
+            { key: "arabic", name: "اللغة العربية", symbol: "أ" },
+            { key: "computer", name: "محور الحاسب الآلي", symbol: "▣" },
+            { key: "educational", name: "محور التربوي", symbol: "🎓" },
+            { key: "hessa_spec", name: "تخصص لغة عربية", symbol: "✎" },
+          ],
+        },
+      };
+
+      function go(id) {
+        app.querySelectorAll(".screen").forEach(function (s) {
+          s.classList.toggle("active", s.id === id);
+        });
+        history.pushState({ screen: id }, "", "");
+      }
+
+      // التحكم في زر الرجوع الخاص بالهاتف المحمول
+      window.addEventListener("popstate", function () {
+        const activeScreen = app.querySelector(".screen.active");
+        if (activeScreen) {
+          if (activeScreen.id === "sa-tracker") {
+            go("sa-materials");
+          } else if (activeScreen.id === "sa-materials") {
+            go("sa-competitions");
+          } else if (
+            activeScreen.id === "sa-competitions" ||
+            activeScreen.id === "sa-home"
+          ) {
+            go("sa-login");
+          }
+        }
+      });
+
+      app.querySelector("#sa-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = app.querySelector("#sa-name").value.trim();
+        if (!name) return;
+
+        currentUser = name.toLowerCase();
+        app.querySelector("#sa-welcome").textContent = "أهلاً بك، " + name;
+        app.querySelector("#sa-user").textContent = name;
+        go("sa-home");
+      });
+
+      app.querySelector("#sa-members").addEventListener("click", function () {
+        go("sa-competitions");
+      });
+
+      app.querySelector("#sa-free").addEventListener("click", function () {
+        app.querySelector("#sa-title").textContent =
+          "المحتوى المجاني - المحاور الأساسية";
+        const container = app.querySelector("#sa-subject-list");
+        container.innerHTML = "";
+
+        const notice = app.querySelector("#sa-notice");
+        notice.style.display = "none";
+
+        // إظهار بنر التواصل في المحتوى المجاني
+        app.querySelector("#sa-promo-banner").style.display = "block";
+
+        const backBtn = app.querySelector("#sa-back-btn");
+        backBtn.setAttribute("data-back", "sa-home");
+        backBtn.textContent = "→ الصفحة الرئيسية";
+
+        freeSubjects.forEach(function (sub) {
+          const subBtn = document.createElement("button");
+          subBtn.className = "subject";
+          subBtn.type = "button";
+          subBtn.innerHTML = `
+            <span class="symbol">${sub.symbol}</span>
+            <span>${sub.name}</span>
+            <span class="arrow">←</span>
+          `;
+
+          subBtn.addEventListener("click", function () {
+            const link = freeTelegramLinks[sub.key];
+            if (link && link !== "#" && !link.includes("example_link")) {
+              window.open(link, "_blank", "noopener,noreferrer");
+            } else {
+              notice.textContent =
+                "اخترت " +
+                sub.name +
+                ". يرجى وضع رابط التليجرام الخاص به في الكود.";
+              notice.style.display = "block";
+            }
+          });
+
+          container.appendChild(subBtn);
+        });
+
+        go("sa-materials");
+      });
+
+      app.querySelectorAll("[data-comp]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          currentCompKey = btn.dataset.comp;
+          const compData = competitionsData[currentCompKey];
+
+          if (compData) {
+            app.querySelector("#sa-title").textContent = compData.title;
+            const container = app.querySelector("#sa-subject-list");
+            container.innerHTML = "";
+
+            const notice = app.querySelector("#sa-notice");
+            notice.style.display = "none";
+
+            // إخفاء بنر التواصل عند الانتقال لماتريال المشتركين
+            app.querySelector("#sa-promo-banner").style.display = "none";
+
+            const backBtn = app.querySelector("#sa-back-btn");
+            backBtn.setAttribute("data-back", "sa-competitions");
+            backBtn.textContent = "→ المسابقات";
+
+            compData.subjects.forEach(function (sub) {
+              const subBtn = document.createElement("button");
+              subBtn.className = "subject";
+              subBtn.type = "button";
+              subBtn.innerHTML = `
+                <span class="symbol">${sub.symbol}</span>
+                <span>${sub.name}</span>
+                <span class="arrow">←</span>
+              `;
+
+              subBtn.addEventListener("click", function () {
+                openTrackerSubject(sub.key, sub.name);
+              });
+
+              container.appendChild(subBtn);
+            });
+
+            go("sa-materials");
+          }
+        });
+      });
+
+      function openTrackerSubject(subKey, subName) {
+        const subData = subscriberData[subKey] || {
+          title: subName,
+          items: [
+            {
+              title: "محتوى " + subName,
+              file: "#",
+              excludeTasks: [],
+            },
+          ],
+        };
+
+        app.querySelector("#tr-subject-title").textContent = subData.title;
+
+        const container = app.querySelector("#tr-items-container");
+        container.innerHTML = "";
+
+        subData.items.forEach(function (item, index) {
+          const itemCard = document.createElement("div");
+          itemCard.className = "tracker-card";
+
+          let btnsHtml = "";
+          if (item.video) {
+            btnsHtml += `<a href="${item.video}" target="_blank" class="tracker-btn">فتح الفيديو</a>`;
+          }
+          if (item.file) {
+            btnsHtml += `<a href="${item.file}" target="_blank" class="tracker-btn">فتح الملف</a>`;
+          }
+          if (item.test) {
+            btnsHtml += `<a href="${item.test}" target="_blank" class="tracker-btn">فتح الاختبار</a>`;
+          }
+          if (!btnsHtml) {
+            btnsHtml += `<a href="#" class="tracker-btn">فتح المحتوى</a>`;
+          }
+
+          let tasksHtml = "";
+
+          if (item.customTasks) {
+            item.customTasks.forEach(function (ct, ctIndex) {
+              const taskId = `${subKey}_${index}_custom_${ctIndex}_${ct.idKey}`;
+              const storageKey = `user_${currentUser}_task_${taskId}`;
+              const isChecked = localStorage.getItem(storageKey) === "true";
+
+              tasksHtml += `
+                <div class="tracker-option">
+                  <input type="checkbox" id="${taskId}" ${isChecked ? "checked" : ""} data-storage-key="${storageKey}">
+                  <label for="${taskId}">${ct.label}</label>
+                </div>
+              `;
+            });
+          } else {
+            const defaultTasks = [
+              { label: "مشاهدة الفيديو", idKey: "v" },
+              { label: "مذاكرة النموذج", idKey: "m" },
+              { label: "حل الاستفتاءات", idKey: "s" },
+              { label: "حل الاختبار بوقت", idKey: "q" },
+            ];
+
+            defaultTasks.forEach(function (dt) {
+              const isExcluded =
+                item.excludeTasks &&
+                item.excludeTasks.some(function (ex) {
+                  return ex.trim() === dt.label.trim();
+                });
+
+              if (!isExcluded) {
+                const taskId = `${subKey}_${index}_${dt.idKey}`;
+                const storageKey = `user_${currentUser}_task_${taskId}`;
+                const isChecked = localStorage.getItem(storageKey) === "true";
+
+                tasksHtml += `
+                  <div class="tracker-option">
+                    <input type="checkbox" id="${taskId}" ${isChecked ? "checked" : ""} data-storage-key="${storageKey}">
+                    <label for="${taskId}">${dt.label}</label>
+                  </div>
+                `;
+              }
+            });
+          }
+
+          itemCard.innerHTML = `
+            <div class="tracker-header">
+              <span class="tracker-item-title">${item.title}</span>
+              <div class="btns-group">${btnsHtml}</div>
+            </div>
+            ${tasksHtml}
+          `;
+
+          container.appendChild(itemCard);
+        });
+
+        container
+          .querySelectorAll('input[type="checkbox"]')
+          .forEach(function (chk) {
+            chk.addEventListener("change", function () {
+              const key = chk.getAttribute("data-storage-key");
+              localStorage.setItem(key, chk.checked);
+              updateProgress();
+            });
+          });
+
+        function updateProgress() {
+          const checkboxes = container.querySelectorAll(
+            'input[type="checkbox"]',
+          );
+          let total = checkboxes.length;
+          let checked = 0;
+          checkboxes.forEach((c) => {
+            if (c.checked) checked++;
+          });
+
+          const percent = total > 0 ? Math.round((checked / total) * 100) : 0;
+          const pBar = app.querySelector("#tr-progress-bar");
+          pBar.textContent = percent + "%";
+          pBar.style.width = percent + "%";
+        }
+
+        updateProgress();
+        go("sa-tracker");
+      }
+
+      app
+        .querySelector("#tr-top-back-btn")
+        .addEventListener("click", function () {
+          go("sa-materials");
+        });
+
+      app.querySelector("#tr-back-btn").addEventListener("click", function () {
+        go("sa-materials");
+      });
+
+      app.querySelectorAll("[data-back]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          const target = btn.getAttribute("data-back");
+          if (target) go(target);
+        });
+      });
+    })();
+  </script>
+</div>
