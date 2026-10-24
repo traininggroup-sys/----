@@ -260,6 +260,39 @@
       font-weight: 700;
     }
 
+    /* تنسيق المحور الذهبي الجديد المميز */
+    #study-app .subject.gold-special {
+      background: linear-gradient(135deg, #fff9e6, #fef2cc);
+      border: 2px solid var(--gold);
+      color: #45350c;
+    }
+
+    #study-app .subject.gold-special .symbol {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    #study-app .gold-text-red {
+      color: #d90429;
+      font-weight: 800;
+    }
+
+    #study-app .subject-btn-link {
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-right: auto;
+      transition: opacity 0.2s;
+    }
+
+    #study-app .subject-btn-link:hover {
+      opacity: 0.9;
+    }
+
     #study-app .subject .symbol {
       width: 36px;
       height: 36px;
@@ -628,7 +661,7 @@
       <button class="back" data-back="sa-home">→ رجوع</button>
     </section>
 
-    <!-- شاشة التحقق من الاشتراك الجديدة -->
+    <!-- شاشة التحقق من الاشتراك -->
     <section class="screen" id="sa-subscription-check">
       <h3 id="sa-check-title">التحقق من الاشتراك</h3>
       <p class="desc">يرجى اختيار حالتك للمتابعة.</p>
@@ -674,7 +707,7 @@
         >
       </div>
 
-      <button class="back" id="sa-back-btn" data-back="sa-competitions">
+      <button class="back" id="sa-back-btn" data-back="sa-subscription-check">
         → الرجوع
       </button>
     </section>
@@ -1971,38 +2004,32 @@
         },
       };
 
+      const baseCompetitionSubjects = [
+        {
+          key: "behavioral",
+          name: "الجدرات السلوكية والنفسية",
+          symbol: "✓",
+        },
+        { key: "iq", name: "الايكيو", symbol: "◈" },
+        { key: "general", name: "المعلومات العامة", symbol: "◎" },
+        { key: "arabic", name: "اللغة العربية", symbol: "أ" },
+        { key: "english", name: "اللغة الإنجليزية", symbol: "A" },
+        { key: "computer", name: "محور الحاسب الآلي", symbol: "▣" },
+        { key: "educational", name: "محور التربوي", symbol: "🎓" },
+      ];
+
       const competitionsData = {
         quran: {
           title: "مسابقة القرآن الكريم",
           subjects: [
-            {
-              key: "behavioral",
-              name: "الجدرات السلوكية والنفسية",
-              symbol: "✓",
-            },
-            { key: "iq", name: "الايكيو", symbol: "◈" },
-            { key: "general", name: "المعلومات العامة", symbol: "◎" },
-            { key: "arabic", name: "اللغة العربية", symbol: "أ" },
-            { key: "english", name: "اللغة الإنجليزية", symbol: "A" },
-            { key: "computer", name: "محور الحاسب الآلي", symbol: "▣" },
-            { key: "educational", name: "محور التربوي", symbol: "🎓" },
+            ...baseCompetitionSubjects,
             { key: "quran_spec", name: "تخصص قرآن", symbol: "۞" },
           ],
         },
         arabic_azhar: {
           title: "مسابقة عربي أزهر",
           subjects: [
-            {
-              key: "behavioral",
-              name: "الجدرات السلوكية والنفسية",
-              symbol: "✓",
-            },
-            { key: "iq", name: "الايكيو", symbol: "◈" },
-            { key: "general", name: "المعلومات العامة", symbol: "◎" },
-            { key: "arabic", name: "اللغة العربية", symbol: "أ" },
-            { key: "english", name: "اللغة الإنجليزية", symbol: "A" },
-            { key: "computer", name: "محور الحاسب الآلي", symbol: "▣" },
-            { key: "educational", name: "محور التربوي", symbol: "🎓" },
+            ...baseCompetitionSubjects,
             { key: "azhar_spec", name: "تخصص لغة عربية أزهر", symbol: "📖" },
           ],
         },
@@ -2137,6 +2164,16 @@
             const backBtn = app.querySelector("#sa-back-btn");
             backBtn.setAttribute("data-back", "sa-subscription-check");
             backBtn.textContent = "→ رجوع";
+
+            // إضافة المحور الذهبي الخاص أولاً في كل مسابقة
+            const goldSubDiv = document.createElement("div");
+            goldSubDiv.className = "subject gold-special";
+            goldSubDiv.innerHTML = `
+            <span class="symbol">★</span>
+            <span>أهم الأسئلة اللي بتيجي في الفترة الحالية (<span class="gold-text-red">الخلاصة</span>)</span>
+            <a href="https://t.me/c/2299629125/37268/55930" target="_blank" rel="noopener noreferrer" class="subject-btn-link">دخول</a>
+          `;
+            container.appendChild(goldSubDiv);
 
             compData.subjects.forEach(function (sub) {
               const subBtn = document.createElement("button");
