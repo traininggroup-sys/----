@@ -26,7 +26,12 @@
     #study-app * {
       box-sizing: border-box;
     }
-
+    #study-app .symbol img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
     #study-app button,
     #study-app input {
       font: inherit;
@@ -315,6 +320,63 @@
       transform: translateY(-1px);
     }
 
+    #study-app .subscription-check-box {
+      background: white;
+      border: 2px solid var(--gold);
+      border-radius: 14px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(212, 167, 44, 0.15);
+      margin-top: 10px;
+    }
+
+    #study-app .subscription-check-box p {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--green);
+      margin: 0 0 20px 0;
+      line-height: 1.6;
+    }
+
+    #study-app .subscription-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #study-app .sub-btn-primary {
+      background: var(--gold);
+      color: #073f35;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 12px;
+      border-radius: 10px;
+      display: block;
+      transition: opacity 0.2s;
+    }
+
+    #study-app .sub-btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    #study-app .sub-btn-secondary {
+      background: var(--green);
+      color: white;
+      border: none;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 12px;
+      border-radius: 10px;
+      width: 100%;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    #study-app .sub-btn-secondary:hover {
+      opacity: 0.9;
+    }
+
     #study-app .tracker-top-bar {
       display: flex;
       align-items: center;
@@ -512,14 +574,21 @@
 
       <div class="cards">
         <button class="card simple" type="button" id="sa-free">
-          <div class="symbol">▤</div>
+          <div class="symbol card-img-symbol">
+            <img src="photo_2026-10-24_13-28-57.jpg" alt="Question Icon" />
+          </div>
           <h4>المحتوى المجاني</h4>
           <p>تعرف علي اسئلة الجهاز المركزي وأهم الصفحات والاختبارات.</p>
           <span class="action"> دخول ←</span>
         </button>
 
         <button class="card premium" type="button" id="sa-members">
-          <div class="symbol">★</div>
+          <div class="symbol card-img-symbol">
+            <img
+              src="Gemini_Generated_Image_revv1zrevv1zrevv.jpg"
+              alt="Question Icon"
+            />
+          </div>
           <h4>ماتريال جروب المشتركين</h4>
           <p>أسئلة منظمة وتحديث مستمر بالأسئلة المهمة.</p>
           <span class="action">دخول المشتركين ←</span>
@@ -532,20 +601,23 @@
       <p class="desc">حدد المسابقة لعرض المواد المتاحة.</p>
 
       <div class="cards">
-        <button class="card simple" data-comp="quran">
+        <!-- مسابقة القرآن الكريم (لون ذهبي) -->
+        <button class="card premium" data-comp="quran">
           <div class="symbol">۞</div>
           <h4>مسابقة القرآن الكريم</h4>
           <p>مواد الاستعداد لمسابقة القرآن الكريم.</p>
           <span class="action">عرض المحاور ←</span>
         </button>
 
-        <button class="card simple" data-comp="arabic_azhar">
+        <!-- مسابقة عربي أزهر (لون ذهبي) -->
+        <button class="card premium" data-comp="arabic_azhar">
           <div class="symbol">أ</div>
           <h4>مسابقة عربي أزهر</h4>
           <p>مواد الاستعداد لمسابقة عربي أزهر.</p>
           <span class="action">عرض المحاور ←</span>
         </button>
 
+        <!-- مسابقة حصة عربي (لون أبيض وتعمل طبيعي) -->
         <button class="card simple" data-comp="arabic_hessa">
           <div class="symbol">✎</div>
           <h4>مسابقة حصة عربي</h4>
@@ -554,6 +626,34 @@
         </button>
       </div>
       <button class="back" data-back="sa-home">→ رجوع</button>
+    </section>
+
+    <!-- شاشة التحقق من الاشتراك الجديدة -->
+    <section class="screen" id="sa-subscription-check">
+      <h3 id="sa-check-title">التحقق من الاشتراك</h3>
+      <p class="desc">يرجى اختيار حالتك للمتابعة.</p>
+
+      <div class="subscription-check-box">
+        <p>ملحوظة: الأسئلة المهمة مش هتفتح غير للمشتركين</p>
+        <div class="subscription-actions">
+          <a
+            href="http://t.me/NaglaFG"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sub-btn-primary"
+            >عايز أشترك ←</a
+          >
+          <button
+            type="button"
+            class="sub-btn-secondary"
+            id="sa-already-subscribed"
+          >
+            مشترك بالفعل
+          </button>
+        </div>
+      </div>
+
+      <button class="back" data-back="sa-competitions">→ رجوع للمسابقات</button>
     </section>
 
     <section class="screen" id="sa-materials">
@@ -1937,6 +2037,8 @@
           if (activeScreen.id === "sa-tracker") {
             go("sa-materials");
           } else if (activeScreen.id === "sa-materials") {
+            go("sa-subscription-check");
+          } else if (activeScreen.id === "sa-subscription-check") {
             go("sa-competitions");
           } else if (
             activeScreen.id === "sa-competitions" ||
@@ -2012,6 +2114,17 @@
           const compData = competitionsData[currentCompKey];
 
           if (compData) {
+            app.querySelector("#sa-check-title").textContent = compData.title;
+            go("sa-subscription-check");
+          }
+        });
+      });
+
+      app
+        .querySelector("#sa-already-subscribed")
+        .addEventListener("click", function () {
+          const compData = competitionsData[currentCompKey];
+          if (compData) {
             app.querySelector("#sa-title").textContent = compData.title;
             const container = app.querySelector("#sa-subject-list");
             container.innerHTML = "";
@@ -2022,18 +2135,18 @@
             app.querySelector("#sa-promo-banner").style.display = "none";
 
             const backBtn = app.querySelector("#sa-back-btn");
-            backBtn.setAttribute("data-back", "sa-competitions");
-            backBtn.textContent = "→ المسابقات";
+            backBtn.setAttribute("data-back", "sa-subscription-check");
+            backBtn.textContent = "→ رجوع";
 
             compData.subjects.forEach(function (sub) {
               const subBtn = document.createElement("button");
               subBtn.className = "subject";
               subBtn.type = "button";
               subBtn.innerHTML = `
-                <span class="symbol">${sub.symbol}</span>
-                <span>${sub.name}</span>
-                <span class="arrow">←</span>
-              `;
+              <span class="symbol">${sub.symbol}</span>
+              <span>${sub.name}</span>
+              <span class="arrow">←</span>
+            `;
 
               subBtn.addEventListener("click", function () {
                 openTrackerSubject(sub.key, sub.name);
@@ -2045,7 +2158,6 @@
             go("sa-materials");
           }
         });
-      });
 
       function openTrackerSubject(subKey, subName) {
         const subData = subscriberData[subKey] || {
