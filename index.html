@@ -1,4 +1,5 @@
 <div id="study-app" dir="rtl">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap");
 
@@ -9,8 +10,9 @@
       --text: #173b32;
       --purple: #3b2890;
       font-family: "Cairo", sans-serif;
+      width: 100%;
       max-width: 750px;
-      margin: 20px auto;
+      margin: 10px auto;
       color: var(--text);
       background: var(--cream);
       border: 1px solid #e8e5da;
@@ -71,7 +73,7 @@
     }
 
     #study-app .body {
-      padding: 24px;
+      padding: 20px;
       padding-bottom: 50px;
     }
 
@@ -89,7 +91,7 @@
 
     #study-app h2 {
       color: var(--green);
-      font-size: 26px;
+      font-size: 24px;
       line-height: 1.5;
       margin: 0 0 8px;
       font-weight: 800;
@@ -97,7 +99,7 @@
 
     #study-app h3 {
       color: var(--green);
-      font-size: 21px;
+      font-size: 20px;
       margin: 0 0 5px;
       font-weight: 800;
     }
@@ -275,7 +277,6 @@
       font-size: 13px;
     }
 
-    /* --- تنسيق الجملة المميزة للجروب المجاني --- */
     #study-app .promo-banner {
       display: none;
       background: linear-gradient(135deg, #073f35, #175246);
@@ -314,7 +315,6 @@
       transform: translateY(-1px);
     }
 
-    /* --- تنسيق الهيدر العلوي لصفحة المتابعة --- */
     #study-app .tracker-top-bar {
       display: flex;
       align-items: center;
@@ -325,7 +325,7 @@
     }
 
     #study-app .tracker-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
       color: var(--green);
       margin: 0;
@@ -372,7 +372,7 @@
     }
 
     #study-app .tracker-item-title {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 800;
       color: #000;
     }
@@ -381,6 +381,7 @@
       display: flex;
       gap: 6px;
       flex-shrink: 0;
+      flex-wrap: wrap;
     }
 
     #study-app .tracker-btn {
@@ -389,7 +390,7 @@
       border: none;
       padding: 6px 12px;
       border-radius: 8px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       cursor: pointer;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
@@ -449,26 +450,23 @@
 
     @media (max-width: 480px) {
       #study-app {
-        margin: 8px auto;
-        border-radius: 12px;
+        margin: 0 auto;
+        border-radius: 0;
+        border: none;
       }
       #study-app .body {
-        padding: 16px;
-      }
-      #study-app .header {
-        padding: 13px 14px;
-      }
-      #study-app .brand {
-        font-size: 14px;
-      }
-      #study-app h2 {
-        font-size: 23px;
+        padding: 14px;
       }
       #study-app .cards {
         grid-template-columns: 1fr;
       }
-      #study-app .card {
-        padding: 17px;
+      #study-app .tracker-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      #study-app .btns-group {
+        width: 100%;
+        margin-top: 5px;
       }
     }
   </style>
@@ -566,7 +564,6 @@
 
       <div id="sa-notice" class="notice" role="status"></div>
 
-      <!-- الجملة المميزة باللينك تظهر فقط في المحتوى المجاني -->
       <div id="sa-promo-banner" class="promo-banner">
         <p>
           لسه مَذاكرتش؟ أو عايز تذاكر أهم أسئلة الجهاز المركزي بالتحديثات وتنضم
@@ -1934,7 +1931,6 @@
         history.pushState({ screen: id }, "", "");
       }
 
-      // التحكم في زر الرجوع الخاص بالهاتف المحمول
       window.addEventListener("popstate", function () {
         const activeScreen = app.querySelector(".screen.active");
         if (activeScreen) {
@@ -1975,7 +1971,6 @@
         const notice = app.querySelector("#sa-notice");
         notice.style.display = "none";
 
-        // إظهار بنر التواصل في المحتوى المجاني
         app.querySelector("#sa-promo-banner").style.display = "block";
 
         const backBtn = app.querySelector("#sa-back-btn");
@@ -2024,7 +2019,6 @@
             const notice = app.querySelector("#sa-notice");
             notice.style.display = "none";
 
-            // إخفاء بنر التواصل عند الانتقال لماتريال المشتركين
             app.querySelector("#sa-promo-banner").style.display = "none";
 
             const backBtn = app.querySelector("#sa-back-btn");
