@@ -733,6 +733,40 @@
       </button>
     </section>
 
+    <!-- شاشة خيارات قسم الاختبارات المجانية -->
+    <section class="screen" id="sa-tests-screen">
+      <h3>قسم الاختبارات</h3>
+      <p class="desc">اختر نوع الاختبار للمتابعة.</p>
+
+      <div class="subject-list">
+        <a
+          href="https://traininggroup-sys.github.io/---------------ss/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="subject"
+          style="text-decoration: none"
+        >
+          <span class="symbol">📝</span>
+          <span>الاختبار الشامل</span>
+          <span class="arrow">←</span>
+        </a>
+
+        <a
+          href="https://traininggroup-sys.github.io/--------------/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="subject"
+          style="text-decoration: none"
+        >
+          <span class="symbol">📊</span>
+          <span>موقع المستويات</span>
+          <span class="arrow">←</span>
+        </a>
+      </div>
+
+      <button class="back" id="sa-tests-back">→ الرجوع للمحاور</button>
+    </section>
+
     <section class="screen" id="sa-tracker">
       <div class="tracker-top-bar">
         <h2 class="tracker-title" id="tr-subject-title">المحور</h2>
@@ -774,6 +808,7 @@
       };
 
       const freeSubjects = [
+        { key: "tests", name: "الاختبارات", symbol: "📋" },
         { key: "behavioral", name: "الجدرات السلوكية والنفسية", symbol: "✓" },
         { key: "iq", name: "الايكيو", symbol: "◈" },
         { key: "general", name: "المعلومات العامة", symbol: "◎" },
@@ -935,6 +970,8 @@
               customTasks: [
                 { label: "مذاكرة الأسئلة", idKey: "m1" },
                 { label: "حل الاختبار بوقت", idKey: "q1" },
+                { label: "مذاكرة الأسئلة", idKey: "m2" },
+                { label: "حل الاختبار بوقت", idKey: "q2" },
                 { label: "حل الاستفتاءات", idKey: "s1" },
               ],
             },
@@ -1212,6 +1249,8 @@
                 { label: "مذاكرة الأسئلة", idKey: "m1" },
                 { label: "حل الاختبار بوقت", idKey: "q1" },
                 { label: "مذاكرة الأسئلة", idKey: "m2" },
+                { label: "حل الاختبار بوقت", idKey: "q2" },
+                { label: "حل الاستفتاءات", idKey: "s1" },
               ],
             },
             {
@@ -1884,132 +1923,132 @@
             {
               title: "نموذج 1",
               file: "https://t.me/c/2299629125/19608/67252",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 2",
               file: "https://t.me/c/2299629125/19608/67302",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 3",
               file: "https://t.me/c/2299629125/19608/67405",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 4",
               file: "https://t.me/c/2299629125/19608/67447",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 5",
               file: "https://t.me/c/2299629125/19608/67509",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 6",
               file: "https://t.me/c/2299629125/19608/67602",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 7",
               file: "https://t.me/c/2299629125/19608/67643",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 8",
               file: "https://t.me/c/2299629125/19608/67684",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 9",
               file: "https://t.me/c/2299629125/19608/67725",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 10",
               file: "https://t.me/c/2299629125/19608/67765",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 11",
               file: "https://t.me/c/2299629125/19608/67823",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 12",
               file: "https://t.me/c/2299629125/19608/67872",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 13",
               file: "https://t.me/c/2299629125/19608/67912",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 14",
               file: "https://t.me/c/2299629125/19608/67948",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 15",
               file: "https://t.me/c/2299629125/19608/67996",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 16",
               file: "https://t.me/c/2299629125/19608/68042",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 17",
               file: "https://t.me/c/2299629125/19608/68089",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 18",
               file: "https://t.me/c/2299629125/19608/68133",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 19",
               file: "https://t.me/c/2299629125/19608/68174",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 20",
               file: "https://t.me/c/2299629125/19608/68216",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 21",
               file: "https://t.me/c/2299629125/19608/68274",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 22",
               file: "https://t.me/c/2299629125/19608/68327",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 23",
               file: "https://t.me/c/2299629125/19608/68373",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 24",
               file: "https://t.me/c/2299629125/19608/68417",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 25",
               file: "https://t.me/c/2299629125/19608/68458",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
             {
               title: "نموذج 26",
               file: "https://t.me/c/2299629125/19608/68497",
-              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
+              excludeTasks: ["مشاهدة الفيديو"],
             },
           ],
         },
@@ -2104,6 +2143,8 @@
         if (activeScreen) {
           if (activeScreen.id === "sa-tracker") {
             go("sa-materials");
+          } else if (activeScreen.id === "sa-tests-screen") {
+            go("sa-materials");
           } else if (activeScreen.id === "sa-materials") {
             go("sa-subscription-check");
           } else if (activeScreen.id === "sa-subscription-check") {
@@ -2158,6 +2199,11 @@
           `;
 
           subBtn.addEventListener("click", function () {
+            if (sub.key === "tests") {
+              go("sa-tests-screen");
+              return;
+            }
+
             const link = freeTelegramLinks[sub.key];
             if (link && link !== "#" && !link.includes("example_link")) {
               window.open(link, "_blank", "noopener,noreferrer");
@@ -2175,6 +2221,12 @@
 
         go("sa-materials");
       });
+
+      app
+        .querySelector("#sa-tests-back")
+        .addEventListener("click", function () {
+          go("sa-materials");
+        });
 
       app.querySelectorAll("[data-comp]").forEach(function (btn) {
         btn.addEventListener("click", function () {
