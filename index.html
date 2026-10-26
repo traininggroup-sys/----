@@ -61,14 +61,19 @@
 
     #study-app .logo {
       border: 2px solid var(--gold);
-      color: var(--gold);
       border-radius: 50%;
       width: 39px;
       height: 39px;
+      overflow: hidden;
       display: grid;
       place-items: center;
-      font-size: 23px;
       flex-shrink: 0;
+    }
+
+    #study-app .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     #study-app .header-name {
@@ -589,7 +594,9 @@
 
   <header class="header">
     <div class="brand">
-      <div class="logo">؟</div>
+      <div class="logo">
+        <img src="photo_2026-10-24_13-28-57_2.jpg" alt="Logo" />
+      </div>
       <div>
         <div>سبأ</div>
         <div class="header-name">استعد لامتحانك بثقة</div>
