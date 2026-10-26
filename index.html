@@ -458,6 +458,27 @@
       border: 1px solid #e2e4e8;
     }
 
+    /* تنسيق خاص لبطاقة الخلاصة الذهبية المميزة داخل تفاصيل المحور */
+    #study-app .tracker-card.gold-card-special {
+      background: linear-gradient(135deg, #fff9e6, #fef2cc);
+      border: 2px solid var(--gold);
+    }
+
+    #study-app .tracker-card.gold-card-special .tracker-item-title {
+      color: #45350c;
+      font-size: 15px;
+    }
+
+    #study-app .tracker-card.gold-card-special .tracker-btn {
+      background: var(--gold);
+      color: #073f35;
+      font-weight: 800;
+    }
+
+    #study-app .tracker-card.gold-card-special .tracker-btn:hover {
+      background: #f5d878;
+    }
+
     #study-app .tracker-header {
       display: flex;
       justify-content: space-between;
@@ -791,6 +812,17 @@
           title: "الايكيو",
           items: [
             {
+              title:
+                "أهم أشكال الـ IQ المتداولة (<span class='gold-text-red'>الخلاصة</span>)",
+              file: "https://t.me/c/2299629125/64342",
+              isGoldCard: true,
+              btnLabel: "فتح القائمة",
+              customTasks: [
+                { label: "مشاهدة الفيديو", idKey: "v1" },
+                { label: "حل الاستفتاءات", idKey: "s1" },
+              ],
+            },
+            {
               title: "بداية اي كيو الفديو الاول",
               video: "https://t.me/c/2299629125/15163/79837",
               excludeTasks: ["حل الاختبار بوقت", "مذاكرة النموذج"],
@@ -897,13 +929,12 @@
           items: [
             {
               title:
-                "أهم الأسئلة المتداولة حاليًا لازم تكون عارفها قبل ما تدخل الامتحان",
+                "أهم الأسئلة المتداولة حاليًا لازم تكون عارفها قبل ما تدخل الامتحان (<span class='gold-text-red'>الخلاصة</span>)",
               file: "https://t.me/c/2299629125/2/72147",
+              isGoldCard: true,
               customTasks: [
                 { label: "مذاكرة الأسئلة", idKey: "m1" },
                 { label: "حل الاختبار بوقت", idKey: "q1" },
-                { label: "مذاكرة الأسئلة", idKey: "m2" },
-                { label: "حل الاختبار بوقت", idKey: "q2" },
                 { label: "حل الاستفتاءات", idKey: "s1" },
               ],
             },
@@ -1174,14 +1205,13 @@
           items: [
             {
               title:
-                "أهم الأسئلة المتداولة حاليًا لازم تكون عارفها قبل ما تدخل الامتحان",
+                "أهم الأسئلة المتداولة حاليًا لازم تكون عارفها قبل ما تدخل الامتحان (<span class='gold-text-red'>الخلاصة</span>)",
               file: "https://t.me/c/2299629125/64552/74988",
+              isGoldCard: true,
               customTasks: [
                 { label: "مذاكرة الأسئلة", idKey: "m1" },
                 { label: "حل الاختبار بوقت", idKey: "q1" },
                 { label: "مذاكرة الأسئلة", idKey: "m2" },
-                { label: "حل الاختبار بوقت", idKey: "q2" },
-                { label: "حل الاستفتاءات", idKey: "s1" },
               ],
             },
             {
@@ -1841,134 +1871,145 @@
           title: "المحور التربوي",
           items: [
             {
+              title:
+                "أهم الأسئلة المتداولة حاليًا لازم تكون عارفها قبل ما تدخل الامتحان (<span class='gold-text-red'>الخلاصة</span>)",
+              file: "https://t.me/c/2299629125/19608/84363",
+              isGoldCard: true,
+              excludeTasks: [
+                "مشاهدة الفيديو",
+                "حل الاختبار بوقت",
+                "حل الاستفتاءات",
+              ],
+            },
+            {
               title: "نموذج 1",
               file: "https://t.me/c/2299629125/19608/67252",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 2",
               file: "https://t.me/c/2299629125/19608/67302",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 3",
               file: "https://t.me/c/2299629125/19608/67405",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 4",
               file: "https://t.me/c/2299629125/19608/67447",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 5",
               file: "https://t.me/c/2299629125/19608/67509",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 6",
               file: "https://t.me/c/2299629125/19608/67602",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 7",
               file: "https://t.me/c/2299629125/19608/67643",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 8",
               file: "https://t.me/c/2299629125/19608/67684",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 9",
               file: "https://t.me/c/2299629125/19608/67725",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 10",
               file: "https://t.me/c/2299629125/19608/67765",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 11",
               file: "https://t.me/c/2299629125/19608/67823",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 12",
               file: "https://t.me/c/2299629125/19608/67872",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 13",
               file: "https://t.me/c/2299629125/19608/67912",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 14",
               file: "https://t.me/c/2299629125/19608/67948",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 15",
               file: "https://t.me/c/2299629125/19608/67996",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 16",
               file: "https://t.me/c/2299629125/19608/68042",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 17",
               file: "https://t.me/c/2299629125/19608/68089",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 18",
               file: "https://t.me/c/2299629125/19608/68133",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 19",
               file: "https://t.me/c/2299629125/19608/68174",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 20",
               file: "https://t.me/c/2299629125/19608/68216",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 21",
               file: "https://t.me/c/2299629125/19608/68274",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 22",
               file: "https://t.me/c/2299629125/19608/68327",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 23",
               file: "https://t.me/c/2299629125/19608/68373",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 24",
               file: "https://t.me/c/2299629125/19608/68417",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 25",
               file: "https://t.me/c/2299629125/19608/68458",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
             {
               title: "نموذج 26",
               file: "https://t.me/c/2299629125/19608/68497",
-              excludeTasks: ["مشاهدة الفيديو"],
+              excludeTasks: ["حل الاختبار بوقت", "مشاهدة الفيديو"],
             },
           ],
         },
@@ -2215,20 +2256,23 @@
 
         subData.items.forEach(function (item, index) {
           const itemCard = document.createElement("div");
-          itemCard.className = "tracker-card";
+          itemCard.className = item.isGoldCard
+            ? "tracker-card gold-card-special"
+            : "tracker-card";
 
           let btnsHtml = "";
+          const customBtnLabel = item.btnLabel;
           if (item.video) {
-            btnsHtml += `<a href="${item.video}" target="_blank" class="tracker-btn">فتح الفيديو</a>`;
+            btnsHtml += `<a href="${item.video}" target="_blank" class="tracker-btn">${customBtnLabel || "فتح الفيديو"}</a>`;
           }
           if (item.file) {
-            btnsHtml += `<a href="${item.file}" target="_blank" class="tracker-btn">فتح الملف</a>`;
+            btnsHtml += `<a href="${item.file}" target="_blank" class="tracker-btn">${customBtnLabel || "فتح الملف"}</a>`;
           }
           if (item.test) {
-            btnsHtml += `<a href="${item.test}" target="_blank" class="tracker-btn">فتح الاختبار</a>`;
+            btnsHtml += `<a href="${item.test}" target="_blank" class="tracker-btn">${customBtnLabel || "فتح الاختبار"}</a>`;
           }
           if (!btnsHtml) {
-            btnsHtml += `<a href="#" class="tracker-btn">فتح المحتوى</a>`;
+            btnsHtml += `<a href="#" class="tracker-btn">${customBtnLabel || "فتح المحتوى"}</a>`;
           }
 
           let tasksHtml = "";
