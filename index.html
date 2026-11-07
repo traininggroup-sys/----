@@ -662,14 +662,6 @@
       <p class="desc">حدد المسابقة لعرض المواد المتاحة.</p>
 
       <div class="cards">
-        <!-- مسابقة القرآن الكريم (لون ذهبي) -->
-        <button class="card premium" data-comp="quran">
-          <div class="symbol">۞</div>
-          <h4>مسابقة القرآن الكريم</h4>
-          <p>مواد الاستعداد لمسابقة القرآن الكريم.</p>
-          <span class="action">عرض المحاور ←</span>
-        </button>
-
         <!-- مسابقة عربي أزهر (لون ذهبي) -->
         <button class="card premium" data-comp="arabic_azhar">
           <div class="symbol">أ</div>
@@ -2066,16 +2058,7 @@
             },
           ],
         },
-        quran_spec: {
-          title: "أهم أسئلة التخصص",
-          items: [
-            {
-              title: "أسئلة تخصص القرآن الكريم",
-              file: "https://t.me/c/2299629125/80325/81828",
-              excludeTasks: ["مشاهدة الفيديو"],
-            },
-          ],
-        },
+
         azhar_spec: {
           title: "أهم أسئلة التخصص",
           items: [
@@ -2113,13 +2096,6 @@
       ];
 
       const competitionsData = {
-        quran: {
-          title: "مسابقة القرآن الكريم",
-          subjects: [
-            ...baseCompetitionSubjects,
-            { key: "quran_spec", name: "تخصص قرآن", symbol: "۞" },
-          ],
-        },
         arabic_azhar: {
           title: "مسابقة عربي أزهر",
           subjects: [
