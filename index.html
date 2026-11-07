@@ -677,6 +677,30 @@
           <p>مواد الاستعداد لمسابقة حصة عربي.</p>
           <span class="action">عرض المحاور ←</span>
         </button>
+
+        <!-- معلم مساعد مادة الرياضيات -->
+        <button class="card simple" data-comp="math_helper">
+          <div class="symbol">➗</div>
+          <h4>معلم مساعد مادة الرياضيات</h4>
+          <p>مواد الاستعداد لمسابقة معلم مساعد الرياضيات.</p>
+          <span class="action">عرض المحاور ←</span>
+        </button>
+
+        <!-- معلم مساعد مادة اللغة الإنجليزية -->
+        <button class="card simple" data-comp="english_helper">
+          <div class="symbol">🔤</div>
+          <h4>معلم مساعد مادة اللغة الإنجليزية</h4>
+          <p>مواد الاستعداد لمسابقة معلم مساعد الإنجليزية.</p>
+          <span class="action">عرض المحاور ←</span>
+        </button>
+
+        <!-- معلم مساعد مادة العلوم -->
+        <button class="card simple" data-comp="science_helper">
+          <div class="symbol">🔬</div>
+          <h4>معلم مساعد مادة العلوم</h4>
+          <p>مواد الاستعداد لمسابقة معلم مساعد العلوم.</p>
+          <span class="action">عرض المحاور ←</span>
+        </button>
       </div>
       <button class="back" data-back="sa-home">→ رجوع</button>
     </section>
@@ -2079,6 +2103,51 @@
             },
           ],
         },
+        math_spec: {
+          title: "أهم أسئلة الرياضيات",
+          items: [
+            {
+              title:
+                "قريباً.. سيتم توفير أهم أسئلة تخصص الرياضيات فور بدء المسابقة رسمياً.",
+              excludeTasks: [
+                "مشاهدة الفيديو",
+                "مذاكرة النموذج",
+                "حل الاستفتاءات",
+                "حل الاختبار بوقت",
+              ],
+            },
+          ],
+        },
+        english_spec: {
+          title: "أهم أسئلة اللغة الإنجليزية",
+          items: [
+            {
+              title:
+                "قريباً.. سيتم توفير أهم أسئلة تخصص اللغة الإنجليزية فور بدء المسابقة رسمياً.",
+              excludeTasks: [
+                "مشاهدة الفيديو",
+                "مذاكرة النموذج",
+                "حل الاستفتاءات",
+                "حل الاختبار بوقت",
+              ],
+            },
+          ],
+        },
+        science_spec: {
+          title: "أهم أسئلة العلوم",
+          items: [
+            {
+              title:
+                "قريباً.. سيتم توفير أهم أسئلة تخصص العلوم فور بدء المسابقة رسمياً.",
+              excludeTasks: [
+                "مشاهدة الفيديو",
+                "مذاكرة النموذج",
+                "حل الاستفتاءات",
+                "حل الاختبار بوقت",
+              ],
+            },
+          ],
+        },
       };
 
       const baseCompetitionSubjects = [
@@ -2117,6 +2186,54 @@
             { key: "computer", name: "محور الحاسب الآلي", symbol: "▣" },
             { key: "educational", name: "محور التربوي", symbol: "🎓" },
             { key: "hessa_spec", name: "تخصص لغة عربية", symbol: "✎" },
+          ],
+        },
+        math_helper: {
+          title: "معلم مساعد مادة الرياضيات",
+          subjects: [
+            {
+              key: "behavioral",
+              name: "الجدرات السلوكية والنفسية",
+              symbol: "✓",
+            },
+            { key: "iq", name: "الايكيو", symbol: "◈" },
+            { key: "general", name: "المعلومات العامة", symbol: "◎" },
+            { key: "arabic", name: "اللغة العربية", symbol: "أ" },
+            { key: "computer", name: "محور الحاسب الآلي", symbol: "▣" },
+            { key: "educational", name: "محور التربوي", symbol: "🎓" },
+            { key: "math_spec", name: "تخصص رياضيات", symbol: "➗" },
+          ],
+        },
+        english_helper: {
+          title: "معلم مساعد مادة اللغة الإنجليزية",
+          subjects: [
+            {
+              key: "behavioral",
+              name: "الجدرات السلوكية والنفسية",
+              symbol: "✓",
+            },
+            { key: "iq", name: "الايكيو", symbol: "◈" },
+            { key: "general", name: "المعلومات العامة", symbol: "◎" },
+            { key: "arabic", name: "اللغة العربية", symbol: "أ" },
+            { key: "computer", name: "محور الحاسب الآلي", symbol: "▣" },
+            { key: "educational", name: "محور التربوي", symbol: "🎓" },
+            { key: "english_spec", name: "تخصص لغة إنجليزية", symbol: "🔤" },
+          ],
+        },
+        science_helper: {
+          title: "معلم مساعد مادة العلوم",
+          subjects: [
+            {
+              key: "behavioral",
+              name: "الجدرات السلوكية والنفسية",
+              symbol: "✓",
+            },
+            { key: "iq", name: "الايكيو", symbol: "◈" },
+            { key: "general", name: "المعلومات العامة", symbol: "◎" },
+            { key: "arabic", name: "اللغة العربية", symbol: "أ" },
+            { key: "computer", name: "محور الحاسب الآلي", symbol: "▣" },
+            { key: "educational", name: "محور التربوي", symbol: "🎓" },
+            { key: "science_spec", name: "تخصص علوم", symbol: "🔬" },
           ],
         },
       };
@@ -2307,14 +2424,14 @@
           if (item.video) {
             btnsHtml += `<a href="${item.video}" target="_blank" class="tracker-btn">${customBtnLabel || "فتح الفيديو"}</a>`;
           }
-          if (item.file) {
+          if (item.file && item.file !== "#") {
             btnsHtml += `<a href="${item.file}" target="_blank" class="tracker-btn">${customBtnLabel || "فتح الملف"}</a>`;
           }
           if (item.test) {
             btnsHtml += `<a href="${item.test}" target="_blank" class="tracker-btn">${customBtnLabel || "فتح الاختبار"}</a>`;
           }
-          if (!btnsHtml) {
-            btnsHtml += `<a href="#" class="tracker-btn">${customBtnLabel || "فتح المحتوى"}</a>`;
+          if (!item.video && (!item.file || item.file === "#") && !item.test) {
+            btnsHtml += `<span style="font-size: 12px; color: #666; font-weight: 700;">ستتوفر قريباً</span>`;
           }
 
           let tasksHtml = "";
